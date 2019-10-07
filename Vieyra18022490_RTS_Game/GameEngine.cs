@@ -9,7 +9,7 @@ namespace Vieyra18022490_RTS_Game
 {
     class GameEngine
     {   //Game Engine Class, Used to deal with all the processing and game logic of the game.
-        Map map;
+        Map map = new Map();
         private int round;
         Random r = new Random();
         GroupBox grpMap;

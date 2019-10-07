@@ -12,7 +12,8 @@ namespace Vieyra18022490_RTS_Game
 {
     public partial class frmRTS : Form
     {
-        
+        GameEngine engine;
+
         public frmRTS()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace Vieyra18022490_RTS_Game
 
         private void FrmRTS_Load(object sender, EventArgs e)
         {   //Generates and instantiates the game and Units
-            GameEngine engine = new GameEngine(20, txtInfo, grpMap);
+            engine = new GameEngine(20, txtInfo, grpMap);
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace Vieyra18022490_RTS_Game
         private void TmrTrack_Tick(object sender, EventArgs e)
         {
             //Occurs whenever the timer 'tick's i.e. increases by one
-            GameEngine engine = new GameEngine();
+           
             lblRound.Text = "Round: " + engine.Round.ToString();
             engine.Update();
 

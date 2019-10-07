@@ -12,9 +12,9 @@ namespace Vieyra18022490_RTS_Game
 {
     class Map
     {   //Class that deals witht the game map and the generation of units
-        List<Unit> units;
+        List<Unit> units = new List<Unit>();
         public bool[,] grid = new bool[20, 20];
-        public Random r = new Random();
+        Random r = new Random();
         
         int numUnits;
         TextBox txtInfo;
@@ -42,10 +42,11 @@ namespace Vieyra18022490_RTS_Game
                     MeleeUnit m = new MeleeUnit(r.Next(0, 20),
                                                 r.Next(0, 20),
                                                 100,
-                                                1,
-                                                20,
                                                 (i % 2 == 0 ? 1 : 0),
-                                                "M"
+                                                10,
+                                                20,
+                                                "M",
+                                                false
                                                 );
                     units.Add(m);
                 }
@@ -54,10 +55,10 @@ namespace Vieyra18022490_RTS_Game
                     RangedUnit ru = new RangedUnit(r.Next(0, 20),
                                                 r.Next(0, 20),
                                                 100,
-                                                1,
+                                                (i % 2 == 0 ? 1 : 0),
                                                 20,
                                                 5,
-                                                (i % 2 == 0 ? 1 : 0),
+                                                1,
                                                 "R",
                                                 false);
                     units.Add(ru);
