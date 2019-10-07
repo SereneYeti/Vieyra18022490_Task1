@@ -7,13 +7,7 @@ using System.Threading.Tasks;
 namespace Vieyra18022490_RTS_Game
 {   //Abstract class with no code implemented
     //Used for the sake of re-use and inheritance
-    public enum Direction
-    {
-        North,
-        South,
-        East,
-        West
-    }
+    
     abstract class Unit
     {
         
@@ -28,13 +22,13 @@ namespace Vieyra18022490_RTS_Game
         protected string faction { get; set; }
         protected bool attacking { get; set; }
 
-        public abstract void Move(Direction d,int speed);
+        public abstract void Move(int dir);
 
         public abstract void Attack(Unit attacker);
 
         public abstract bool inRange(Unit other);
 
-        public abstract int Closest(int x, int y);
+        public abstract (Unit, int) Closest(List<Unit> units);
 
         public abstract void Death();
 

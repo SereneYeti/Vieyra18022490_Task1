@@ -99,45 +99,38 @@ namespace Vieyra18022490_RTS_Game
             }
         }
 
-        public override int Closest(int x, int y)
-        {   //Method used to determine the Units closest to each other
-            int temp = 0;
-            Map map = new Map();
+        public override (Unit, int) Closest(List<Unit> units)
+        {
+            int shortest = 100;
+            Unit closest = this;
+            //Closest Unit and Distance                    
+            foreach (Unit u in units)
+            {
+                if (u is MeleeUnit)
+                {
+                    MeleeUnit otherMu = (MeleeUnit)u;
+                    int distance = Math.Abs(this.XPos - otherMu.XPos)
+                               + Math.Abs(this.YPos - otherMu.YPos);
+                    if (distance < shortest)
+                    {
+                        shortest = distance;
+                        closest = otherMu;
+                    }
+                }
+                else if (u is RangedUnit)
+                {
+                    RangedUnit otherRu = (RangedUnit)u;
+                    int distance = Math.Abs(this.XPos - otherRu.XPos)
+                               + Math.Abs(this.YPos - otherRu.YPos);
+                    if (distance < shortest)
+                    {
+                        shortest = distance;
+                        closest = otherRu;
+                    }
+                }
 
-            if (map.grid[x - 1, y - 1])
-            {
-                temp++;
             }
-            if (map.grid[x - 1, y])
-            {
-                temp++;
-            }
-            if (map.grid[x - 1, y + 1])
-            {
-                temp++;
-            }
-            if (map.grid[x, y])
-            {
-                temp++;
-            }
-            if (map.grid[x + 1, y])
-            {
-                temp++;
-            }
-            if (map.grid[x + 1, y - 1])
-            {
-                temp++;
-            }
-            if (map.grid[x + 1, y + 1])
-            {
-                temp++;
-            }
-            if (map.grid[x, y + 1])
-            {
-                temp++;
-            }
-
-            return temp;
+            return (closest, shortest);
         }
 
         public override void Death()
@@ -177,28 +170,18 @@ namespace Vieyra18022490_RTS_Game
             }
         }
 
-        public override void Move(Direction d,int speed)
-        {   //Method used for the movement of Units
-            int distance = r.Next(0, 4);
-            switch (d)
+        public override void Move(int dir)
+        {
+            switch (dir)
             {
-                case Direction.North:
-                    yPos -= distance;
-                    break;
-                case Direction.South:
-                    yPos += distance;
-                    break;
-                case Direction.East:
-                    xPos += distance;
-                    break;
-                case Direction.West:
-                    xPos -= distance;
-                    break;
-                default:
-                    break;
+                case 0: YPos--; break; //North
+                case 1: XPos++; break; //East
+                case 2: YPos++; break; //South
+                case 3: XPos--; break; //West
+                default: break;
             }
         }
 
-        
+
     }
 }
