@@ -19,7 +19,7 @@ namespace Vieyra18022490_RTS_Game
         protected int attack { get; set; }
         protected int attackRange { get; set; }
         protected string symbol { get; set; }
-        protected string faction { get; set; }
+        protected int faction { get; set; }
         protected bool attacking { get; set; }
 
         public abstract void Move(int dir);

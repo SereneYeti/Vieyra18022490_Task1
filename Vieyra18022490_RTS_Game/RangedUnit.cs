@@ -58,7 +58,7 @@ namespace Vieyra18022490_RTS_Game
             get { return base.attacking; }
             set { attacking = value; }
         }
-        public string Faction
+        public int Faction
         {
             get { return base.faction; }
             set { faction = value; }
@@ -71,7 +71,7 @@ namespace Vieyra18022490_RTS_Game
         }
 
         public RangedUnit() { }//Constructor
-        public RangedUnit(int xPos, int yPos, int heath, string faction, int speed, int attack, int attackRange, string symbol, bool attacking)
+        public RangedUnit(int xPos, int yPos, int heath, int faction, int speed, int attack, int attackRange, string symbol, bool attacking)
         {   //Constructor
             this.XPos = xPos;
             this.YPos = yPos;
@@ -81,7 +81,8 @@ namespace Vieyra18022490_RTS_Game
             this.Atk = attack;
             this.AttackRange = attackRange;
             this.Symbol = symbol;
-            this.Attacking = attacking;
+            this.Attacking = false;
+            this.isDead = false;
         }
 
         public override void Attack(Unit attacker)

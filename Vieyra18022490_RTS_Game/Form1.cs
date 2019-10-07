@@ -20,17 +20,13 @@ namespace Vieyra18022490_RTS_Game
 
         private void FrmRTS_Load(object sender, EventArgs e)
         {   //Generates and instantiates the game and Units
-            Map map = new Map(20,20);
-            map.GenerateUnits();
-            map.Display(gbxMap);
+            GameEngine engine = new GameEngine(20, txtInfo, grpMap);
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
         {   //Startsthe round timer in order to keep track of the game and keep it moving forward.
             tmrTrack.Enabled = true;
-            Map map = new Map(20,20);
-            map.GenerateUnits();
-            map.Display(gbxMap);
+           
         }
 
         private void BtnPause_Click(object sender, EventArgs e)
@@ -40,12 +36,10 @@ namespace Vieyra18022490_RTS_Game
 
         private void TmrTrack_Tick(object sender, EventArgs e)
         {
-           //Occurs whenever the timer 'tick's i.e. increases by one
-           Map map = new Map(20, 20);
-           GameEngine engine = new GameEngine();
-           map.Update();
-           engine.GameLogic(lblRound);
-           map.Display(gbxMap);
+            //Occurs whenever the timer 'tick's i.e. increases by one
+            GameEngine engine = new GameEngine();
+            lblRound.Text = "Round: " + engine.Round.ToString();
+            engine.Update();
 
         }
     }

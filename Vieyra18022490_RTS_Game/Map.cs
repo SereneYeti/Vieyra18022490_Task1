@@ -12,78 +12,55 @@ namespace Vieyra18022490_RTS_Game
 {
     class Map
     {   //Class that deals witht the game map and the generation of units
-        public List<MeleeUnit> meleeUnits = new List<MeleeUnit>();
-        public List<RangedUnit> rangedUnits = new List<RangedUnit>();
+        List<Unit> units;
         public bool[,] grid = new bool[20, 20];
         public Random r = new Random();
-        string meleeSymbol = "****|-";
-        string rangedSymbol = "--|";
-        int numRangedUnits;
-        int numMeleeUnits;
+        
+        int numUnits;
+        TextBox txtInfo;
 
-        public Map(int numRu, int numMu)
+        public List<Unit> Units
+        {
+            get { return units; }
+            set { units = value; }
+        }
+
+        public Map(int n, TextBox txt)
         {   //Constructor
-            this.numMeleeUnits = numMu;
-            this.numRangedUnits = numRu;
+            this.numUnits = n;
+            txtInfo = txt;
         }
 
         public Map() { } //Constructor
 
         public void GenerateUnits()
         {   //Method used to generate and store untis
-            int tempX;
-            int tempY;
-            for(int i = 0; i < numMeleeUnits; i++)//Humans
+            for (int i = 0; i < numUnits; i++)
             {
-                tempX = r.Next(1,20);
-                tempY = r.Next(1, 20);
-                MeleeUnit m = new MeleeUnit(tempX, tempY, 6, "Humans", 2, 2, meleeSymbol, false);
-                meleeUnits.Add(m);
-            }
-            
-            
-            for (int i = 0; i < numRangedUnits; i++)//Humans
-            {
-                tempX = r.Next(1, 20);
-                tempY = r.Next(1, 20);
-                RangedUnit R = new RangedUnit(tempX, tempY, 6, "Humans", 2, 2, r.Next(0, 5), rangedSymbol, false);
-                rangedUnits.Add(R);
-            }
-
-            for (int i = 0; i < numMeleeUnits; i++)//Orcs
-            {
-                tempX = r.Next(1, 20);
-                tempY = r.Next(1, 20);
-                MeleeUnit m = new MeleeUnit(tempX, tempY, 6, "Orcs", 2, 2, meleeSymbol, false);
-                meleeUnits.Add(m);
-            }
-
-
-            for (int i = 0; i < numRangedUnits; i++)//Orcs
-            {
-                tempX = r.Next(1, 20);
-                tempY = r.Next(1, 20);
-                RangedUnit R = new RangedUnit(tempX, tempY, 6, "Orcs", 2, 2, r.Next(0, 5), rangedSymbol, false);
-                rangedUnits.Add(R);
-            }
-
-            for(int x =0;x < 20;x++)
-            {
-                for(int y = 0; y < 20;y++)
+                if (r.Next(0, 2) == 0) //Generate Melee Unit
                 {
-                    foreach(MeleeUnit m in meleeUnits)
-                    {
-                        if ((x != m.XPos)&&(y != m.YPos))
-                        {
-                            grid[x, y] = false;
-                        }
-                        else
-                        {
-                            grid[x, y] = true;
-                        }
-                    }
-                    
-                    
+                    MeleeUnit m = new MeleeUnit(r.Next(0, 20),
+                                                r.Next(0, 20),
+                                                100,
+                                                1,
+                                                20,
+                                                (i % 2 == 0 ? 1 : 0),
+                                                "M"
+                                                );
+                    units.Add(m);
+                }
+                else // Generate Ranged Unit
+                {
+                    RangedUnit ru = new RangedUnit(r.Next(0, 20),
+                                                r.Next(0, 20),
+                                                100,
+                                                1,
+                                                20,
+                                                5,
+                                                (i % 2 == 0 ? 1 : 0),
+                                                "R",
+                                                false);
+                    units.Add(ru);
                 }
             }
         }
@@ -91,43 +68,70 @@ namespace Vieyra18022490_RTS_Game
         public void Display(GroupBox groupBox)
         {   //Method used to display units
             groupBox.Controls.Clear();
-            foreach (MeleeUnit m in meleeUnits)
+            foreach (Unit u in units)
             {
-                Label display = new Label();
-                display.Width = 30;
-                display.Height = 20;
-                display.Location = new Point(m.XPos * 20, m.YPos * 20);
-                display.Text = m.Symbol;
-                if(m.Faction == "Humans") { display.ForeColor = Color.Blue; }
-                if (m.Faction == "Orcs") { display.ForeColor = Color.Red; }
-                groupBox.Controls.Add(display);
-            }
-
-            foreach (RangedUnit R in rangedUnits)
-            {
-                Label display = new Label();
-                display.Width = 20;
-                display.Height = 20;
-                display.Location = new Point(R.XPos * 20, R.YPos * 20);
-                display.Text = R.Symbol;
-                if (R.Faction == "Orcs") { display.ForeColor = Color.Red; }
-                if (R.Faction == "Humans") { display.ForeColor = Color.Blue; }
-                groupBox.Controls.Add(display);
+                Button b = new Button();
+                if (u is MeleeUnit)
+                {
+                    MeleeUnit mu = (MeleeUnit)u;
+                    b.Size = new Size(20, 20);
+                    b.Location = new Point(mu.XPos * 20, mu.YPos * 20);
+                    b.Text = mu.Symbol;
+                    if (mu.Faction == 0)
+                    {
+                        b.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        b.ForeColor = Color.Green;
+                    }
+                }
+                else
+                {
+                    RangedUnit ru = (RangedUnit)u;
+                    b.Size = new Size(20, 20);
+                    b.Location = new Point(ru.XPos * 20, ru.YPos * 20);
+                    b.Text = ru.Symbol;
+                    if (ru.Faction == 0)
+                    {
+                        b.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        b.ForeColor = Color.Green;
+                    }
+                }
+                b.Click += Unit_Click;
+                groupBox.Controls.Add(b);
             }
         }
 
-        public void Update()
-        {   //Method used to update the display after every round.
-            foreach (MeleeUnit m in meleeUnits)
+        public void Unit_Click(object sender, EventArgs e)
+        {
+            int x, y;
+            Button b = (Button)sender;
+            x = b.Location.X / 20;
+            y = b.Location.Y / 20;
+            foreach (Unit u in units)
             {
-                m.XPos = r.Next(1, 20);
-                m.YPos = r.Next(1, 20);
-            }
-
-            foreach (RangedUnit R in rangedUnits)
-            {
-                R.XPos = r.Next(1, 20);
-                R.YPos = r.Next(1, 20);
+                if (u is RangedUnit)
+                {
+                    RangedUnit ru = (RangedUnit)u;
+                    if (ru.XPos == x && ru.YPos == y)
+                    {
+                        txtInfo.Text = "";
+                        txtInfo.Text = ru.ToString();
+                    }
+                }
+                else if (u is MeleeUnit)
+                {
+                    MeleeUnit mu = (MeleeUnit)u;
+                    if (mu.XPos == x && mu.YPos == y)
+                    {
+                        txtInfo.Text = "";
+                        txtInfo.Text = mu.ToString();
+                    }
+                }
             }
         }
     }

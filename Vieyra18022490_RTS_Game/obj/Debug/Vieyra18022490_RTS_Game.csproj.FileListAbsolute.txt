@@ -18,3 +18,13 @@ D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1\Vie
 D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.csproj.CoreCompileInputs.cache
 D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.exe
 D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.pdb
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.csprojAssemblyReference.cache
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.frmRTS.resources
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.Properties.Resources.resources
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.csproj.GenerateResource.cache
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.csproj.CoreCompileInputs.cache
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.exe
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\obj\Debug\Vieyra18022490_RTS_Game.pdb
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\bin\Debug\Vieyra18022490_RTS_Game.exe.config
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\bin\Debug\Vieyra18022490_RTS_Game.exe
+D:\OneDrive - Vega School\Modules\GADE6112\POE\Vieyra18022490_RTS_Game_Task1_UpdatedWithComments\Vieyra18022490_RTS_Game\bin\Debug\Vieyra18022490_RTS_Game.pdb

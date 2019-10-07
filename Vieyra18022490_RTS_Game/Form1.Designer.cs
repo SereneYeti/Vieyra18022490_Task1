@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gbxMap = new System.Windows.Forms.GroupBox();
+            this.grpMap = new System.Windows.Forms.GroupBox();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.lblRound = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tmrTrack = new System.Windows.Forms.Timer(this.components);
+            this.txtInfo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // gbxMap
+            // grpMap
             // 
-            this.gbxMap.Location = new System.Drawing.Point(11, 12);
-            this.gbxMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbxMap.Name = "gbxMap";
-            this.gbxMap.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbxMap.Size = new System.Drawing.Size(1307, 973);
-            this.gbxMap.TabIndex = 0;
-            this.gbxMap.TabStop = false;
-            this.gbxMap.Text = "Map";
+            this.grpMap.Location = new System.Drawing.Point(11, 12);
+            this.grpMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpMap.Name = "grpMap";
+            this.grpMap.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpMap.Size = new System.Drawing.Size(1307, 973);
+            this.grpMap.TabIndex = 0;
+            this.grpMap.TabStop = false;
+            this.grpMap.Text = "Map";
             // 
             // btnPause
             // 
@@ -78,19 +78,18 @@
             this.lblRound.Size = new System.Drawing.Size(0, 32);
             this.lblRound.TabIndex = 5;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(1352, 365);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(407, 619);
-            this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "";
-            // 
             // tmrTrack
             // 
             this.tmrTrack.Interval = 500;
             this.tmrTrack.Tick += new System.EventHandler(this.TmrTrack_Tick);
+            // 
+            // txtInfo
+            // 
+            this.txtInfo.Location = new System.Drawing.Point(1352, 219);
+            this.txtInfo.Multiline = true;
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.Size = new System.Drawing.Size(408, 766);
+            this.txtInfo.TabIndex = 6;
             // 
             // frmRTS
             // 
@@ -98,11 +97,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1805, 1021);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.lblRound);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnPause);
-            this.Controls.Add(this.gbxMap);
+            this.Controls.Add(this.grpMap);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmRTS";
             this.Text = "RTS Game";
@@ -114,12 +113,12 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbxMap;
+        private System.Windows.Forms.GroupBox grpMap;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lblRound;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Timer tmrTrack;
+        private System.Windows.Forms.TextBox txtInfo;
     }
 }
 

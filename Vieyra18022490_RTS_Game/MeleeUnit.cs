@@ -10,6 +10,7 @@ namespace Vieyra18022490_RTS_Game
     {   //Melee Unit class, Inherits from the Unit class
         //Variables reflect Unit class
         Random r = new Random();
+        public bool isDead { get; set; }
         public int XPos
         {
             get { return base.xPos; }
@@ -57,7 +58,7 @@ namespace Vieyra18022490_RTS_Game
             get { return base.attacking; }
             set { attacking = value; }
         }
-        public string Faction
+        public int Faction
         {
             get { return base.faction; }
             set { faction = value; }
@@ -65,7 +66,7 @@ namespace Vieyra18022490_RTS_Game
 
         public MeleeUnit() { }  //Constructor
 
-        public MeleeUnit(int xPos, int yPos, int heath, string faction, int speed, int attack, string symbol, bool attacking)
+        public MeleeUnit(int xPos, int yPos, int heath, int faction, int speed, int attack, string symbol, bool attacking)
         {   //Constructor
             this.XPos = xPos;
             this.YPos = yPos;
@@ -75,7 +76,8 @@ namespace Vieyra18022490_RTS_Game
             this.Atk = attack;
             this.AttackRange = 1;
             this.Symbol = symbol;
-            this.Attacking = attacking;
+            this.Attacking = false;
+            this.isDead = false;
         }
 
         public override string ToString()
